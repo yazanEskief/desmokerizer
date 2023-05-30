@@ -23,6 +23,11 @@ final appTheme = ThemeData().copyWith(
   appBarTheme: const AppBarTheme().copyWith(
     backgroundColor: const Color.fromARGB(255, 64, 192, 87),
   ),
+  textTheme: GoogleFonts.aBeeZeeTextTheme().copyWith(
+    bodyMedium: GoogleFonts.aBeeZeeTextTheme().bodyMedium!.copyWith(
+          color: const Color.fromARGB(255, 73, 80, 87),
+        ),
+  ),
 );
 
 class App extends StatefulWidget {
