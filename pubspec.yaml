@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.4
   uuid: ^3.0.7
+  flutter_carousel_slider: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,22 @@ flutter:
     - assets/images/homeScreenBG.jpg
     - assets/images/cup.png
     - assets/images/Paul.jpg
+    - assets/images/bad-breath.png
+    - assets/images/breathing.png
+    - assets/images/carbon.png
+    - assets/images/circulation.png
+    - assets/images/energy.png
+    - assets/images/gum-and-teeth.png
+    - assets/images/gum-texture.png
+    - assets/images/heart-attack.png
+    - assets/images/heart-disease.png
+    - assets/images/immunity.png
+    - assets/images/lung-cancer.png
+    - assets/images/nicotine.png
+    - assets/images/nose.png
+    - assets/images/oxygen.png
+    - assets/images/pulse.png
+    - assets/images/tooth-staining.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
