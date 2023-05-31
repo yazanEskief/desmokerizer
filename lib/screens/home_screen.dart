@@ -1,9 +1,10 @@
-import 'package:desmokrizer/widgets/leader_board_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:desmokrizer/widgets/leader_board_item.dart';
 import 'package:desmokrizer/widgets/not_smoked_timer.dart';
 import 'package:desmokrizer/data/dummyUser.dart';
+import 'package:desmokrizer/models/user.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +14,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final user = User(
+    name: "Yazan",
+    start: DateTime.now().subtract(const Duration(days: 30)),
+    image: "assets/images/Paul.jpg",
+  );
+
   @override
   Widget build(BuildContext context) {
     final sortedUser = users;
@@ -20,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Column(
       children: [
-        const NotSmokedTimer(),
+        NotSmokedTimer(user: user),
         const SizedBox(
           height: 20,
         ),
