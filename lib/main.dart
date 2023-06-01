@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:desmokrizer/models/user.dart';
 import 'package:desmokrizer/screens/chat_screen.dart';
 import 'package:desmokrizer/screens/galery_screen.dart';
 import 'package:desmokrizer/screens/health_screen.dart';
@@ -55,7 +56,13 @@ class _AppState extends State<App> {
         _activeScreen = const SavingsScreen();
       }
       if (_currentIndex == 1) {
-        _activeScreen = const HealthScreen();
+        _activeScreen = HealthScreen(
+          user: User(
+            name: "Yazan",
+            start: DateTime.now().subtract(const Duration(days: 30)),
+            image: "assets/images/Paul.jpg",
+          ),
+        );
       }
       if (_currentIndex == 2) {
         _activeScreen = const HomeScreen();
