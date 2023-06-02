@@ -1,27 +1,24 @@
+import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:desmokrizer/widgets/leader_board_item.dart';
 import 'package:desmokrizer/widgets/not_smoked_timer.dart';
 import 'package:desmokrizer/data/dummyUser.dart';
 import 'package:desmokrizer/models/user.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  final user = User(
-    name: "Yazan",
-    start: DateTime.now().subtract(const Duration(days: 30)),
-    image: "assets/images/Paul.jpg",
-  );
-
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(userProvider);
     final sortedUser = users;
     sortedUser.sort((a, b) => a.start.compareTo(b.start));
 
