@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 import 'package:desmokrizer/models/card_health.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
@@ -26,9 +27,11 @@ class _HealthCardState extends ConsumerState<HealthCard> {
   late Timer _timer;
   DateTime _currentTime = DateTime.now();
   bool _isOpen = false;
+  late ValueNotifier<double> valueNotifier;
 
   @override
   void initState() {
+    valueNotifier = ValueNotifier(_calcPassedTime());
     _incrementTimer();
     super.initState();
   }
@@ -42,19 +45,20 @@ class _HealthCardState extends ConsumerState<HealthCard> {
     });
   }
 
-  String _calcPassedTime() {
+  double _calcPassedTime() {
     final userNotSmokedTime = ref.read(userProvider).start;
     final passedTime = _currentTime.difference(userNotSmokedTime);
     final percentage =
         ((passedTime.inMinutes / widget.card.durationToRecover.inMinutes) *
             100);
 
-    final result = percentage > 100 ? 100 : percentage;
-    return result.toStringAsFixed(0);
+    final result = percentage > 100 ? 100.0 : percentage;
+    return result;
   }
 
   @override
   void dispose() {
+    valueNotifier.dispose();
     _timer.cancel();
     super.dispose();
   }
@@ -120,7 +124,7 @@ class _HealthCardState extends ConsumerState<HealthCard> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      height: _isOpen ? 550 : null,
+      height: _isOpen ? 535 : null,
       child: Card(
         color: Colors.white,
         margin: const EdgeInsets.symmetric(
@@ -141,9 +145,28 @@ class _HealthCardState extends ConsumerState<HealthCard> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const SizedBox(
-                          width: 50,
+                          width: 10,
                         ),
-                        Text("${_calcPassedTime()}%"),
+                        SizedBox(
+                          width: 55,
+                          height: 55,
+                          child: SimpleCircularProgressBar(
+                            animationDuration: 1,
+                            backStrokeWidth: 7,
+                            backColor: const Color.fromARGB(255, 186, 231, 182),
+                            maxValue: 100,
+                            progressColors: const [
+                              Color.fromARGB(255, 85, 165, 94),
+                            ],
+                            valueNotifier: valueNotifier,
+                            progressStrokeWidth: 7,
+                            onGetText: (p0) {
+                              return Text(
+                                p0.toStringAsFixed(0),
+                              );
+                            },
+                          ),
+                        ),
                         const SizedBox(
                           width: 30,
                         ),
