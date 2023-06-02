@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:desmokrizer/models/user.dart';
+import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
 import 'package:desmokrizer/widgets/health_card.dart';
 
-class FirstSlide extends StatefulWidget {
-  const FirstSlide({super.key, required this.user});
-
-  final User user;
+class FirstSlide extends ConsumerStatefulWidget {
+  const FirstSlide({super.key});
 
   @override
-  State<FirstSlide> createState() => _FirstSlideState();
+  ConsumerState<FirstSlide> createState() => _FirstSlideState();
 }
 
-class _FirstSlideState extends State<FirstSlide> {
+class _FirstSlideState extends ConsumerState<FirstSlide> {
   var cardsManager = {
     CardsCategory.pulse: true,
     CardsCategory.oxygen: true,
@@ -27,13 +26,14 @@ class _FirstSlideState extends State<FirstSlide> {
         if (key != category) {
           cardsManager[key] = !value;
         }
-        print("key: $key, value: $value");
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(userProvider);
+
     return LayoutBuilder(
       builder: (context, constrainst) {
         final height = constrainst.maxHeight;
@@ -54,7 +54,7 @@ class _FirstSlideState extends State<FirstSlide> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  widget.user.name,
+                  user.name,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontSize: 24,

@@ -1,9 +1,12 @@
+import 'dart:async';
+import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:desmokrizer/models/card_health.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
 
-class HealthCard extends StatefulWidget {
+class HealthCard extends ConsumerStatefulWidget {
   const HealthCard({
     super.key,
     required this.onToggleCard,
@@ -16,11 +19,45 @@ class HealthCard extends StatefulWidget {
   final CardsCategory category;
 
   @override
-  State<HealthCard> createState() => _HealthCardState();
+  ConsumerState<HealthCard> createState() => _HealthCardState();
 }
 
-class _HealthCardState extends State<HealthCard> {
+class _HealthCardState extends ConsumerState<HealthCard> {
+  late Timer _timer;
+  DateTime _currentTime = DateTime.now();
   bool _isOpen = false;
+
+  @override
+  void initState() {
+    _incrementTimer();
+    super.initState();
+  }
+
+  void _incrementTimer() {
+    const duration = Duration(minutes: 1);
+    _timer = Timer.periodic(duration, (timer) {
+      setState(() {
+        _currentTime = _currentTime.add(duration);
+      });
+    });
+  }
+
+  String _calcPassedTime() {
+    final userNotSmokedTime = ref.read(userProvider).start;
+    final passedTime = _currentTime.difference(userNotSmokedTime);
+    final percentage =
+        ((passedTime.inMinutes / widget.card.durationToRecover.inMinutes) *
+            100);
+
+    final result = percentage > 100 ? 100 : percentage;
+    return result.toStringAsFixed(0);
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   Widget _cardOpenWidget() {
     return Container(
@@ -106,7 +143,7 @@ class _HealthCardState extends State<HealthCard> {
                         const SizedBox(
                           width: 50,
                         ),
-                        const Text("100%"),
+                        Text("${_calcPassedTime()}%"),
                         const SizedBox(
                           width: 30,
                         ),

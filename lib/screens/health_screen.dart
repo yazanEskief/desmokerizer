@@ -19,18 +19,13 @@ class HealthScreen extends StatefulWidget {
 }
 
 class _HealthScreenState extends State<HealthScreen> {
-  var _sliderController = CarouselSliderController();
-  var _startPosition;
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> slides = [
-      FirstSlide(user: widget.user),
-      SecondSlide(
-        user: widget.user,
-      ),
-      ThirdSlide(user: widget.user),
-      FourthSlide(user: widget.user),
+      const FirstSlide(),
+      const SecondSlide(),
+      const ThirdSlide(),
+      const FourthSlide(),
     ];
     return CarouselSlider.builder(
       itemCount: slides.length,

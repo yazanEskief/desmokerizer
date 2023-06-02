@@ -6,9 +6,11 @@ class UserProvider extends StateNotifier<User> {
   UserProvider()
       : super(
           User(
-            name: "User",
+            name: "Yazan",
             image: "assets/images/Paul.jpg",
-            start: DateTime.now(),
+            start: DateTime.now().subtract(
+              const Duration(hours: 2),
+            ),
           ),
         );
 

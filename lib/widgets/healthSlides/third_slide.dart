@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:desmokrizer/models/user.dart';
+import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
 import 'package:desmokrizer/widgets/health_card.dart';
 
-class ThirdSlide extends StatefulWidget {
-  const ThirdSlide({super.key, required this.user});
-
-  final User user;
+class ThirdSlide extends ConsumerStatefulWidget {
+  const ThirdSlide({super.key});
 
   @override
-  State<ThirdSlide> createState() => _ThirdSlideState();
+  ConsumerState<ThirdSlide> createState() => _ThirdSlideState();
 }
 
-class _ThirdSlideState extends State<ThirdSlide> {
+class _ThirdSlideState extends ConsumerState<ThirdSlide> {
   var cardsManager = {
     CardsCategory.toothStaining: true,
     CardsCategory.gumAndTeeth: true,
@@ -27,13 +26,14 @@ class _ThirdSlideState extends State<ThirdSlide> {
         if (key != category) {
           cardsManager[key] = !value;
         }
-        print("key: $key, value: $value");
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(userProvider);
+
     return LayoutBuilder(
       builder: (context, constrainst) {
         final height = constrainst.maxHeight;
@@ -54,7 +54,7 @@ class _ThirdSlideState extends State<ThirdSlide> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  widget.user.name,
+                  user.name,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontSize: 24,

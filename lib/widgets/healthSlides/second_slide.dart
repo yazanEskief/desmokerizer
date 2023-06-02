@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:desmokrizer/models/user.dart';
+import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
 import 'package:desmokrizer/widgets/health_card.dart';
 
-class SecondSlide extends StatefulWidget {
-  const SecondSlide({super.key, required this.user});
-
-  final User user;
+class SecondSlide extends ConsumerStatefulWidget {
+  const SecondSlide({super.key});
 
   @override
-  State<SecondSlide> createState() => _SecondSlideState();
+  ConsumerState<SecondSlide> createState() => _SecondSlideState();
 }
 
-class _SecondSlideState extends State<SecondSlide> {
+class _SecondSlideState extends ConsumerState<SecondSlide> {
   var cardsManager = {
     CardsCategory.tasteAndSmell: true,
     CardsCategory.breathing: true,
@@ -27,13 +26,14 @@ class _SecondSlideState extends State<SecondSlide> {
         if (key != category) {
           cardsManager[key] = !value;
         }
-        print("key: $key, value: $value");
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(userProvider);
+
     return LayoutBuilder(
       builder: (context, constrainst) {
         final height = constrainst.maxHeight;
@@ -54,7 +54,7 @@ class _SecondSlideState extends State<SecondSlide> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  widget.user.name,
+                  user.name,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontSize: 24,
