@@ -8,6 +8,10 @@ class UserProvider extends StateNotifier<User> {
           User(
             name: "Yazan",
             image: "assets/images/Paul.jpg",
+            cigarettesPacks: 2,
+            packPrice: 8,
+            smokedCiagrettesPerDay: 23,
+            cigarettesInPack: 20,
             start: DateTime.now().subtract(
               const Duration(hours: 2),
             ),
@@ -19,6 +23,10 @@ class UserProvider extends StateNotifier<User> {
       image: user.image,
       name: user.name,
       start: user.start,
+      cigarettesInPack: user.cigarettesInPack,
+      cigarettesPacks: user.cigarettesPacks,
+      packPrice: user.packPrice,
+      smokedCiagrettesPerDay: user.smokedCiagrettesPerDay,
     );
   }
 }
