@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:desmokrizer/widgets/leader_board_item.dart';
-import 'package:desmokrizer/widgets/not_smoked_timer.dart';
+import 'package:desmokrizer/widgets/homeScreenWidgets/leader_board_item.dart';
+import 'package:desmokrizer/widgets/homeScreenWidgets/not_smoked_timer.dart';
 import 'package:desmokrizer/data/dummyUser.dart';
 import 'package:desmokrizer/models/user.dart';
 

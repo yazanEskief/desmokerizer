@@ -61,13 +61,7 @@ class _AppState extends State<App> {
         _activeScreen = const SavingsScreen();
       }
       if (_currentIndex == 1) {
-        _activeScreen = HealthScreen(
-          user: User(
-            name: "Yazan",
-            start: DateTime.now().subtract(const Duration(days: 30)),
-            image: "assets/images/Paul.jpg",
-          ),
-        );
+        _activeScreen = const HealthScreen();
       }
       if (_currentIndex == 2) {
         _activeScreen = const HomeScreen();

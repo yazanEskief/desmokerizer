@@ -30,6 +30,10 @@ class User {
     return cigarettePrice * smokedCiagrettesPerDay;
   }
 
+  double savedMoneyPerMinute() {
+    return savedMoneyPerHour() / 60;
+  }
+
   double savedMoneyPerHour() {
     return savedMoneyPerDay() / 24;
   }

@@ -3,21 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
-import 'package:desmokrizer/widgets/health_card.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/health_card.dart';
 
-class ThirdSlide extends ConsumerStatefulWidget {
-  const ThirdSlide({super.key});
+class FourthSlide extends ConsumerStatefulWidget {
+  const FourthSlide({super.key});
 
   @override
-  ConsumerState<ThirdSlide> createState() => _ThirdSlideState();
+  ConsumerState<FourthSlide> createState() => _FourthSlideState();
 }
 
-class _ThirdSlideState extends ConsumerState<ThirdSlide> {
+class _FourthSlideState extends ConsumerState<FourthSlide> {
   var cardsManager = {
-    CardsCategory.toothStaining: true,
-    CardsCategory.gumAndTeeth: true,
-    CardsCategory.circulation: true,
-    CardsCategory.gumTexture: true,
+    CardsCategory.immunity: true,
+    CardsCategory.heartDisease: true,
+    CardsCategory.lungCancer: true,
+    CardsCategory.heartAttack: true,
   };
 
   void _toggleCards(CardsCategory category) {
@@ -40,7 +40,7 @@ class _ThirdSlideState extends ConsumerState<ThirdSlide> {
         return Stack(children: [
           Container(
             width: double.infinity,
-            height: height * 0.69,
+            height: height * 0.86,
             decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 64, 192, 87),
                 borderRadius: BorderRadius.only(
@@ -73,32 +73,32 @@ class _ThirdSlideState extends ConsumerState<ThirdSlide> {
                 const SizedBox(
                   height: 24,
                 ),
-                if (cardsManager[CardsCategory.toothStaining]!)
+                if (cardsManager[CardsCategory.immunity]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.toothStaining),
-                    card: cards[CardsCategory.toothStaining]!,
-                    category: CardsCategory.toothStaining,
+                    key: const ValueKey(CardsCategory.immunity),
+                    card: cards[CardsCategory.immunity]!,
+                    category: CardsCategory.immunity,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.gumAndTeeth]!)
+                if (cardsManager[CardsCategory.heartDisease]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.gumAndTeeth),
-                    card: cards[CardsCategory.gumAndTeeth]!,
-                    category: CardsCategory.gumAndTeeth,
+                    key: const ValueKey(CardsCategory.heartDisease),
+                    card: cards[CardsCategory.heartDisease]!,
+                    category: CardsCategory.heartDisease,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.circulation]!)
+                if (cardsManager[CardsCategory.lungCancer]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.circulation),
-                    card: cards[CardsCategory.circulation]!,
-                    category: CardsCategory.circulation,
+                    key: const ValueKey(CardsCategory.lungCancer),
+                    card: cards[CardsCategory.lungCancer]!,
+                    category: CardsCategory.lungCancer,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.gumTexture]!)
+                if (cardsManager[CardsCategory.heartAttack]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.gumTexture),
-                    card: cards[CardsCategory.gumTexture]!,
-                    category: CardsCategory.gumTexture,
+                    key: const ValueKey(CardsCategory.heartAttack),
+                    card: cards[CardsCategory.heartAttack]!,
+                    category: CardsCategory.heartAttack,
                     onToggleCard: _toggleCards,
                   ),
               ],

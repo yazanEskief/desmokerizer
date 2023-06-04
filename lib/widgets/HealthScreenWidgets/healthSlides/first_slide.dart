@@ -3,21 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
-import 'package:desmokrizer/widgets/health_card.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/health_card.dart';
 
-class FourthSlide extends ConsumerStatefulWidget {
-  const FourthSlide({super.key});
+class FirstSlide extends ConsumerStatefulWidget {
+  const FirstSlide({super.key});
 
   @override
-  ConsumerState<FourthSlide> createState() => _FourthSlideState();
+  ConsumerState<FirstSlide> createState() => _FirstSlideState();
 }
 
-class _FourthSlideState extends ConsumerState<FourthSlide> {
+class _FirstSlideState extends ConsumerState<FirstSlide> {
   var cardsManager = {
-    CardsCategory.immunity: true,
-    CardsCategory.heartDisease: true,
-    CardsCategory.lungCancer: true,
-    CardsCategory.heartAttack: true,
+    CardsCategory.pulse: true,
+    CardsCategory.oxygen: true,
+    CardsCategory.carbon: true,
+    CardsCategory.nicotine: true,
   };
 
   void _toggleCards(CardsCategory category) {
@@ -40,7 +40,7 @@ class _FourthSlideState extends ConsumerState<FourthSlide> {
         return Stack(children: [
           Container(
             width: double.infinity,
-            height: height * 0.86,
+            height: height * 0.25,
             decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 64, 192, 87),
                 borderRadius: BorderRadius.only(
@@ -73,32 +73,32 @@ class _FourthSlideState extends ConsumerState<FourthSlide> {
                 const SizedBox(
                   height: 24,
                 ),
-                if (cardsManager[CardsCategory.immunity]!)
+                if (cardsManager[CardsCategory.pulse]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.immunity),
-                    card: cards[CardsCategory.immunity]!,
-                    category: CardsCategory.immunity,
+                    key: const ValueKey(CardsCategory.pulse),
+                    card: cards[CardsCategory.pulse]!,
+                    category: CardsCategory.pulse,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.heartDisease]!)
+                if (cardsManager[CardsCategory.oxygen]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.heartDisease),
-                    card: cards[CardsCategory.heartDisease]!,
-                    category: CardsCategory.heartDisease,
+                    key: const ValueKey(CardsCategory.oxygen),
+                    card: cards[CardsCategory.oxygen]!,
+                    category: CardsCategory.oxygen,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.lungCancer]!)
+                if (cardsManager[CardsCategory.carbon]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.lungCancer),
-                    card: cards[CardsCategory.lungCancer]!,
-                    category: CardsCategory.lungCancer,
+                    key: const ValueKey(CardsCategory.carbon),
+                    card: cards[CardsCategory.carbon]!,
+                    category: CardsCategory.carbon,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.heartAttack]!)
+                if (cardsManager[CardsCategory.nicotine]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.heartAttack),
-                    card: cards[CardsCategory.heartAttack]!,
-                    category: CardsCategory.heartAttack,
+                    key: const ValueKey(CardsCategory.nicotine),
+                    card: cards[CardsCategory.nicotine]!,
+                    category: CardsCategory.nicotine,
                     onToggleCard: _toggleCards,
                   ),
               ],

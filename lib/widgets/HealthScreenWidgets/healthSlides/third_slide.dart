@@ -3,21 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
-import 'package:desmokrizer/widgets/health_card.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/health_card.dart';
 
-class SecondSlide extends ConsumerStatefulWidget {
-  const SecondSlide({super.key});
+class ThirdSlide extends ConsumerStatefulWidget {
+  const ThirdSlide({super.key});
 
   @override
-  ConsumerState<SecondSlide> createState() => _SecondSlideState();
+  ConsumerState<ThirdSlide> createState() => _ThirdSlideState();
 }
 
-class _SecondSlideState extends ConsumerState<SecondSlide> {
+class _ThirdSlideState extends ConsumerState<ThirdSlide> {
   var cardsManager = {
-    CardsCategory.tasteAndSmell: true,
-    CardsCategory.breathing: true,
-    CardsCategory.energy: true,
-    CardsCategory.badBreath: true,
+    CardsCategory.toothStaining: true,
+    CardsCategory.gumAndTeeth: true,
+    CardsCategory.circulation: true,
+    CardsCategory.gumTexture: true,
   };
 
   void _toggleCards(CardsCategory category) {
@@ -40,7 +40,7 @@ class _SecondSlideState extends ConsumerState<SecondSlide> {
         return Stack(children: [
           Container(
             width: double.infinity,
-            height: height * 0.45,
+            height: height * 0.69,
             decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 64, 192, 87),
                 borderRadius: BorderRadius.only(
@@ -73,32 +73,32 @@ class _SecondSlideState extends ConsumerState<SecondSlide> {
                 const SizedBox(
                   height: 24,
                 ),
-                if (cardsManager[CardsCategory.tasteAndSmell]!)
+                if (cardsManager[CardsCategory.toothStaining]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.tasteAndSmell),
-                    card: cards[CardsCategory.tasteAndSmell]!,
-                    category: CardsCategory.tasteAndSmell,
+                    key: const ValueKey(CardsCategory.toothStaining),
+                    card: cards[CardsCategory.toothStaining]!,
+                    category: CardsCategory.toothStaining,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.breathing]!)
+                if (cardsManager[CardsCategory.gumAndTeeth]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.breathing),
-                    card: cards[CardsCategory.breathing]!,
-                    category: CardsCategory.breathing,
+                    key: const ValueKey(CardsCategory.gumAndTeeth),
+                    card: cards[CardsCategory.gumAndTeeth]!,
+                    category: CardsCategory.gumAndTeeth,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.energy]!)
+                if (cardsManager[CardsCategory.circulation]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.energy),
-                    card: cards[CardsCategory.energy]!,
-                    category: CardsCategory.energy,
+                    key: const ValueKey(CardsCategory.circulation),
+                    card: cards[CardsCategory.circulation]!,
+                    category: CardsCategory.circulation,
                     onToggleCard: _toggleCards,
                   ),
-                if (cardsManager[CardsCategory.badBreath]!)
+                if (cardsManager[CardsCategory.gumTexture]!)
                   HealthCard(
-                    key: const ValueKey(CardsCategory.badBreath),
-                    card: cards[CardsCategory.badBreath]!,
-                    category: CardsCategory.badBreath,
+                    key: const ValueKey(CardsCategory.gumTexture),
+                    card: cards[CardsCategory.gumTexture]!,
+                    category: CardsCategory.gumTexture,
                     onToggleCard: _toggleCards,
                   ),
               ],

@@ -13,7 +13,7 @@ class UserProvider extends StateNotifier<User> {
             smokedCiagrettesPerDay: 23,
             cigarettesInPack: 20,
             start: DateTime.now().subtract(
-              const Duration(hours: 2),
+              const Duration(days: 30),
             ),
           ),
         );

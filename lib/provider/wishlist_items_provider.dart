@@ -3,41 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:desmokrizer/models/wish_list_item.dart';
 
 class WishListItemsProvider extends StateNotifier<List<WishListItem>> {
-  WishListItemsProvider()
-      : super([
-          WishListItem(
-            name: "Playstation",
-            price: 200.00,
-          ),
-          WishListItem(
-            name: "bike",
-            price: 1000.00,
-          ),
-          WishListItem(
-            name: "scouter",
-            price: 500.00,
-          ),
-          // WishListItem(
-          //   name: "Playstation",
-          //   price: 200.00,
-          // ),
-          // WishListItem(
-          //   name: "Playstation",
-          //   price: 200.00,
-          // ),
-          // WishListItem(
-          //   name: "Playstation",
-          //   price: 200.00,
-          // ),
-          // WishListItem(
-          //   name: "Playstation",
-          //   price: 200.00,
-          // ),
-        ]);
+  WishListItemsProvider() : super([]);
 
   void addItemToList(WishListItem item) {
     if (state.isEmpty) {
-      state.add(item);
+      state = [item];
     } else {
       final temp = state;
       temp.add(item);

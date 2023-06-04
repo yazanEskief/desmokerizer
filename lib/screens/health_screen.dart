@@ -4,15 +4,13 @@ import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_carousel_slider/carousel_slider_transforms.dart';
 
 import 'package:desmokrizer/models/user.dart';
-import 'package:desmokrizer/widgets/healthSlides/first_slide.dart';
-import 'package:desmokrizer/widgets/healthSlides/second_slide.dart';
-import 'package:desmokrizer/widgets/healthSlides/third_slide.dart';
-import 'package:desmokrizer/widgets/healthSlides/fourth_slide.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/healthSlides/first_slide.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/healthSlides/second_slide.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/healthSlides/third_slide.dart';
+import 'package:desmokrizer/widgets/HealthScreenWidgets/healthSlides/fourth_slide.dart';
 
 class HealthScreen extends StatefulWidget {
-  const HealthScreen({super.key, required this.user});
-
-  final User user;
+  const HealthScreen({super.key});
 
   @override
   State<HealthScreen> createState() => _HealthScreenState();
