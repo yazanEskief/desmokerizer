@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:desmokrizer/widgets/SavingsScreenWidgets/money_saved_tab.dart';
 import 'package:desmokrizer/provider/user_provider.dart';
+import 'package:desmokrizer/provider/wishlist_items_provider.dart';
 import 'package:desmokrizer/widgets/SavingsScreenWidgets/wish_list_tab.dart';
 
 class SavingsScreen extends ConsumerStatefulWidget {
@@ -15,6 +16,12 @@ class SavingsScreen extends ConsumerStatefulWidget {
 
 class _SavingsScreenState extends ConsumerState<SavingsScreen> {
   int _currentActiveTab = 0;
+
+  @override
+  void initState() {
+    ref.read(wishListItemsProvider.notifier).loadWishlistItems();
+    super.initState();
+  }
 
   void _setActiveTab(int value) {
     setState(() {
