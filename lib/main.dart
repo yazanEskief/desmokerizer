@@ -27,8 +27,8 @@ final appTheme = ThemeData().copyWith(
   scaffoldBackgroundColor: colorScheme.background,
   colorScheme: colorScheme,
   appBarTheme: const AppBarTheme().copyWith(
-    backgroundColor: const Color.fromARGB(255, 64, 192, 87),
-  ),
+      backgroundColor: const Color.fromARGB(255, 64, 192, 87),
+      iconTheme: const IconThemeData().copyWith(color: Colors.white)),
   textTheme: GoogleFonts.aBeeZeeTextTheme().copyWith(
     bodyMedium: GoogleFonts.aBeeZeeTextTheme().bodyMedium!.copyWith(
           color: const Color.fromARGB(255, 73, 80, 87),
