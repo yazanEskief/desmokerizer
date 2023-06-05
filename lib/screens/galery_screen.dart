@@ -17,6 +17,12 @@ class GaleryScreen extends ConsumerStatefulWidget {
 }
 
 class _GaleryScreenState extends ConsumerState<GaleryScreen> {
+  @override
+  void initState() {
+    ref.read(imageProvider.notifier).loadImages();
+    super.initState();
+  }
+
   void _addImageFromCamera() async {
     final imagePicker = ImagePicker();
     final takenImage = await imagePicker.pickImage(source: ImageSource.camera);

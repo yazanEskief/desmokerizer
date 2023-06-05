@@ -8,9 +8,12 @@ class DesmokerizerImage {
   DesmokerizerImage({
     required this.imagePath,
     this.description,
-  })  : id = uuid.v4(),
-        createdAt = DateTime.now(),
-        updatedAt = DateTime.now();
+    String? id,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  })  : id = id ?? uuid.v4(),
+        createdAt = createdAt ?? DateTime.now(),
+        updatedAt = updatedAt ?? DateTime.now();
 
   final String id;
   File imagePath;
