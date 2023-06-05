@@ -25,9 +25,9 @@ class _TotalSavedCardState extends ConsumerState<TotalSavedCard> {
     const duration = Duration(minutes: 1);
     _timer = Timer.periodic(duration, (timer) {
       final passedTime =
-          DateTime.now().difference(ref.read(userProvider).start);
-      final tempTotalSavedMoney =
-          passedTime.inMinutes * ref.read(userProvider).savedMoneyPerMinute();
+          DateTime.now().difference(ref.read(userProvider).first.start);
+      final tempTotalSavedMoney = passedTime.inMinutes *
+          ref.read(userProvider).first.savedMoneyPerMinute();
       if (tempTotalSavedMoney.toStringAsFixed(2) !=
           _totalSavedMoney.toStringAsFixed(2)) {
         setState(() {
@@ -44,9 +44,10 @@ class _TotalSavedCardState extends ConsumerState<TotalSavedCard> {
   }
 
   void _calcTotalSavedMoney() {
-    final passedTime = DateTime.now().difference(ref.read(userProvider).start);
-    _totalSavedMoney =
-        passedTime.inMinutes * ref.read(userProvider).savedMoneyPerMinute();
+    final passedTime =
+        DateTime.now().difference(ref.read(userProvider).first.start);
+    _totalSavedMoney = passedTime.inMinutes *
+        ref.read(userProvider).first.savedMoneyPerMinute();
   }
 
   @override

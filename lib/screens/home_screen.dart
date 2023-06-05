@@ -24,7 +24,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
     return Column(
       children: [
-        NotSmokedTimer(user: user),
+        NotSmokedTimer(user: user.first),
         const SizedBox(
           height: 20,
         ),

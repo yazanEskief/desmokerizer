@@ -32,7 +32,7 @@ class _ThirdSlideState extends ConsumerState<ThirdSlide> {
 
   @override
   Widget build(BuildContext context) {
-    final user = ref.watch(userProvider);
+    final user = ref.watch(userProvider).first;
 
     return LayoutBuilder(
       builder: (context, constrainst) {

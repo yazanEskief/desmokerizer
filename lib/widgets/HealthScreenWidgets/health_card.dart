@@ -46,7 +46,7 @@ class _HealthCardState extends ConsumerState<HealthCard> {
   }
 
   double _calcPassedTime() {
-    final userNotSmokedTime = ref.read(userProvider).start;
+    final userNotSmokedTime = ref.read(userProvider).first.start;
     final passedTime = _currentTime.difference(userNotSmokedTime);
     final percentage =
         ((passedTime.inMinutes / widget.card.durationToRecover.inMinutes) *

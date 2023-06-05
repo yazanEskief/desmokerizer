@@ -17,7 +17,7 @@ class MoneySavedTab extends ConsumerStatefulWidget {
 class _MoneySavedTabState extends ConsumerState<MoneySavedTab> {
   @override
   Widget build(BuildContext context) {
-    final user = ref.watch(userProvider);
+    final user = ref.watch(userProvider).first;
 
     return Expanded(
       child: Column(

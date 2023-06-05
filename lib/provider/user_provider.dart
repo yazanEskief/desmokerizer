@@ -1,10 +1,11 @@
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import 'package:sqflite/sqflite.dart';
 
 import "package:desmokrizer/models/user.dart";
 
-class UserProvider extends StateNotifier<User> {
+class UserProvider extends StateNotifier<List<User>> {
   UserProvider()
-      : super(
+      : super([
           User(
             name: "Yazan",
             image: "assets/images/Paul.jpg",
@@ -16,20 +17,12 @@ class UserProvider extends StateNotifier<User> {
               const Duration(days: 30),
             ),
           ),
-        );
+        ]);
 
   void setUser(User user) {
-    state = User(
-      image: user.image,
-      name: user.name,
-      start: user.start,
-      cigarettesInPack: user.cigarettesInPack,
-      cigarettesPacks: user.cigarettesPacks,
-      packPrice: user.packPrice,
-      smokedCiagrettesPerDay: user.smokedCiagrettesPerDay,
-    );
+    state = [user];
   }
 }
 
 final userProvider =
-    StateNotifierProvider<UserProvider, User>((ref) => UserProvider());
+    StateNotifierProvider<UserProvider, List<User>>((ref) => UserProvider());

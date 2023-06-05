@@ -58,9 +58,10 @@ class _WishListTabState extends ConsumerState<WishListTab> {
   }
 
   String _calcAchievedItems() {
-    final totalSaved =
-        DateTime.now().difference(ref.read(userProvider).start).inMinutes *
-            ref.read(userProvider).savedMoneyPerMinute();
+    final totalSaved = DateTime.now()
+            .difference(ref.read(userProvider).first.start)
+            .inMinutes *
+        ref.read(userProvider).first.savedMoneyPerMinute();
     final totalItems = ref.read(wishListItemsProvider).length;
 
     int completed = 0;
@@ -95,7 +96,8 @@ class _WishListTabState extends ConsumerState<WishListTab> {
               children: [
                 WishListCard(
                   title: "Saved by day",
-                  content: "${user.savedMoneyPerDay().toStringAsFixed(0)} €",
+                  content:
+                      "${user.first.savedMoneyPerDay().toStringAsFixed(0)} €",
                 ),
                 WishListCard(
                   title: "Achieved",
