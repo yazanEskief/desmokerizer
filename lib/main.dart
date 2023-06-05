@@ -45,7 +45,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   Widget _activeScreen = const HomeScreen();
-  int _currentIndex = 2;
+  int _currentIndex = 0;
 
   Color _activebottomNavButtomColor(isActive) {
     return isActive
@@ -58,19 +58,19 @@ class _AppState extends State<App> {
       _currentIndex = index;
 
       if (_currentIndex == 0) {
-        _activeScreen = const SavingsScreen();
+        _activeScreen = const HomeScreen();
       }
       if (_currentIndex == 1) {
         _activeScreen = const HealthScreen();
       }
       if (_currentIndex == 2) {
-        _activeScreen = const HomeScreen();
+        _activeScreen = const SavingsScreen();
       }
       if (_currentIndex == 3) {
-        _activeScreen = const ChatScreen();
+        _activeScreen = const GaleryScreen();
       }
       if (_currentIndex == 4) {
-        _activeScreen = const GaleryScreen();
+        _activeScreen = const ChatScreen();
       }
     });
   }
@@ -99,10 +99,10 @@ class _AppState extends State<App> {
               BottomNavigationBarItem(
                 backgroundColor: const Color.fromARGB(223, 5, 5, 5),
                 icon: Icon(
-                  _currentIndex == 0 ? Icons.savings : Icons.savings_outlined,
+                  _currentIndex == 0 ? Icons.home : Icons.home_outlined,
                   color: _activebottomNavButtomColor(_currentIndex == 0),
                 ),
-                label: "Savings",
+                label: "Home",
               ),
               BottomNavigationBarItem(
                 backgroundColor: const Color.fromARGB(223, 5, 5, 5),
@@ -117,30 +117,30 @@ class _AppState extends State<App> {
               BottomNavigationBarItem(
                 backgroundColor: const Color.fromARGB(223, 5, 5, 5),
                 icon: Icon(
-                  _currentIndex == 2 ? Icons.home : Icons.home_outlined,
+                  _currentIndex == 2 ? Icons.savings : Icons.savings_outlined,
                   color: _activebottomNavButtomColor(_currentIndex == 2),
                 ),
-                label: "Home",
+                label: "Savings",
               ),
               BottomNavigationBarItem(
                 backgroundColor: const Color.fromARGB(223, 5, 5, 5),
                 icon: Icon(
                   _currentIndex == 3
-                      ? Icons.chat_bubble
-                      : Icons.chat_bubble_outline,
+                      ? Icons.camera_alt
+                      : Icons.camera_alt_outlined,
                   color: _activebottomNavButtomColor(_currentIndex == 3),
                 ),
-                label: "Chat",
+                label: "Galery",
               ),
               BottomNavigationBarItem(
                 backgroundColor: const Color.fromARGB(223, 5, 5, 5),
                 icon: Icon(
                   _currentIndex == 4
-                      ? Icons.camera_alt
-                      : Icons.camera_alt_outlined,
+                      ? Icons.chat_bubble
+                      : Icons.chat_bubble_outline,
                   color: _activebottomNavButtomColor(_currentIndex == 4),
                 ),
-                label: "Galery",
+                label: "Chat",
               ),
             ],
             onTap: _changeScreen),
