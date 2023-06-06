@@ -1,7 +1,8 @@
 import 'dart:async';
-import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:desmokrizer/provider/user_provider.dart';
 
 class TotalSavedCard extends ConsumerStatefulWidget {
   const TotalSavedCard({super.key});

@@ -89,6 +89,11 @@ flutter:
     - assets/images/pulse.png
     - assets/images/tooth-staining.png
     - assets/images/savings.png
+    - assets/images/first-step-bg.png
+    - assets/images/first-slide-illustration.png
+    - assets/images/second-slide.png
+    - assets/images/user.png
+    - assets/images/smoking-costs.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

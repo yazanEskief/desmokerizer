@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:desmokrizer/models/user.dart';
 
 class LeaderBoardItem extends StatelessWidget {
@@ -52,6 +53,13 @@ class LeaderBoardItem extends StatelessWidget {
     );
   }
 
+  ImageProvider _getBackgroundImage(User user) {
+    if (user.image == null) {
+      return const AssetImage("assets/images/user.png");
+    }
+    return FileImage(user.image!);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -76,7 +84,7 @@ class LeaderBoardItem extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage(user.image),
+                  backgroundImage: _getBackgroundImage(user),
                 ),
                 const SizedBox(
                   width: 24,

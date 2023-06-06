@@ -1,29 +1,35 @@
+import 'dart:io';
+
 import 'package:uuid/uuid.dart';
 
 final uuid = Uuid();
 
 class User {
   User({
+    String? id,
     required this.name,
-    required this.image,
+    this.image,
     required this.start,
     required this.cigarettesPacks,
     required this.packPrice,
     required this.smokedCiagrettesPerDay,
     required this.cigarettesInPack,
-  })  : id = uuid.v4(),
-        createdAt = DateTime.now();
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  })  : id = id ?? uuid.v4(),
+        createdAt = createdAt ?? DateTime.now(),
+        updatedAt = updatedAt ?? DateTime.now();
 
   final String id;
   final String name;
-  final String image;
+  File? image;
   final double cigarettesPacks;
   final double smokedCiagrettesPerDay;
   final double packPrice;
   final double cigarettesInPack;
   final DateTime start;
   final DateTime createdAt;
-  DateTime? updatedAt;
+  final DateTime updatedAt;
 
   double savedMoneyPerDay() {
     final cigarettePrice = packPrice / cigarettesInPack;

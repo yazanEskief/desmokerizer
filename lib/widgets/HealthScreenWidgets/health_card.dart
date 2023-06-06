@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
+import 'package:desmokrizer/provider/user_provider.dart';
 import 'package:desmokrizer/models/card_health.dart';
 import 'package:desmokrizer/data/health_cards_data.dart';
 

@@ -1,7 +1,7 @@
-import 'package:desmokrizer/provider/wishlist_items_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:desmokrizer/provider/wishlist_items_provider.dart';
 import 'package:desmokrizer/models/wish_list_item.dart';
 
 class NewWishlistItem extends ConsumerStatefulWidget {
