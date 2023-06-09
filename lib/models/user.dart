@@ -8,7 +8,8 @@ class User {
   User({
     String? id,
     required this.name,
-    this.image,
+    this.localImage,
+    this.netWorkImageUrl = "",
     required this.start,
     required this.cigarettesPacks,
     required this.packPrice,
@@ -22,7 +23,8 @@ class User {
 
   final String id;
   final String name;
-  File? image;
+  File? localImage;
+  String netWorkImageUrl;
   final double cigarettesPacks;
   final double smokedCiagrettesPerDay;
   final double packPrice;

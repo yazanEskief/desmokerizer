@@ -54,10 +54,10 @@ class LeaderBoardItem extends StatelessWidget {
   }
 
   ImageProvider _getBackgroundImage(User user) {
-    if (user.image == null) {
+    if (user.netWorkImageUrl.isEmpty) {
       return const AssetImage("assets/images/user.png");
     }
-    return FileImage(user.image!);
+    return NetworkImage(user.netWorkImageUrl);
   }
 
   @override

@@ -30,7 +30,7 @@ class _SmokingCostsState extends ConsumerState<SmokingCosts> {
 
       final user = User(
         name: widget.userInfo["name"],
-        image: widget.userInfo["image"],
+        localImage: widget.userInfo["image"],
         start: widget.userInfo["start"],
         cigarettesPacks: _cigarettesPack,
         packPrice: _packPrice,
@@ -38,7 +38,7 @@ class _SmokingCostsState extends ConsumerState<SmokingCosts> {
         cigarettesInPack: _cigarettesInPack,
       );
 
-      ref.read(userProvider.notifier).setUser(user);
+      ref.read(userProvider.notifier).setUser(user, widget.userInfo["image"]);
 
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(

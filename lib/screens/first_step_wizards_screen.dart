@@ -53,17 +53,6 @@ class _FirstStepWizardsScreenState extends State<FirstStepWizardsScreen> {
                     fit: BoxFit.contain),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 20),
-            //   child: Text(
-            //     "Welcome to Desmokerizer! We're here to support you on your journey to quit smoking and live a healthier life.",
-            //     textAlign: TextAlign.start,
-            //     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            //           color: const Color.fromARGB(255, 235, 251, 238),
-            //           fontSize: 22,
-            //         ),
-            //   ),
-            // ),
             const SizedBox(
               height: 50,
             ),

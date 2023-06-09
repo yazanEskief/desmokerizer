@@ -16,6 +16,14 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
+  late Future<List<User>> usersFromFB;
+
+  @override
+  void initState() {
+    usersFromFB = ref.read(userProvider.notifier).loadUsersFromFirebase();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userProvider);
@@ -56,16 +64,32 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         const SizedBox(
           height: 10,
         ),
-        Expanded(
-          child: ListView.builder(
-            // padding: const EdgeInsets.only(bottom: 20),
-            itemCount: sortedUser.length,
-            shrinkWrap: true,
-            itemBuilder: (ctx, index) => LeaderBoardItem(
-              index: index,
-              user: sortedUser[index],
-            ),
-          ),
+        FutureBuilder(
+          future: usersFromFB,
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            if (snapshot.hasData) {
+              return Expanded(
+                child: ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  shrinkWrap: true,
+                  itemBuilder: (ctx, index) => LeaderBoardItem(
+                    index: index,
+                    user: snapshot.data![index],
+                  ),
+                ),
+              );
+            } else {
+              return const Center(
+                child: Text("There no users to display"),
+              );
+            }
+          },
         )
       ],
     );
