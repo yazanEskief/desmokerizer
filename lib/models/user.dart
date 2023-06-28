@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:uuid/uuid.dart';
 
 final uuid = Uuid();
@@ -13,7 +12,7 @@ class User {
     required this.start,
     required this.cigarettesPacks,
     required this.packPrice,
-    required this.smokedCiagrettesPerDay,
+    required this.smokedCigarettesPerDay,
     required this.cigarettesInPack,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -26,7 +25,7 @@ class User {
   File? localImage;
   String netWorkImageUrl;
   final double cigarettesPacks;
-  final double smokedCiagrettesPerDay;
+  final double smokedCigarettesPerDay;
   final double packPrice;
   final double cigarettesInPack;
   final DateTime start;
@@ -35,7 +34,7 @@ class User {
 
   double savedMoneyPerDay() {
     final cigarettePrice = packPrice / cigarettesInPack;
-    return cigarettePrice * smokedCiagrettesPerDay;
+    return cigarettePrice * smokedCigarettesPerDay;
   }
 
   double savedMoneyPerMinute() {

@@ -9,10 +9,6 @@ Future<Database> _getDatabase() async {
   final dbPath = await sql.getDatabasesPath();
   final db = await sql.openDatabase(
     path.join(dbPath, "desmokerizer.db"),
-    onCreate: (db, version) {
-      return db.execute(
-          'CREATE TABLE wishlist_items (id TEXT PRIMARY KEY, name TEXT, createdAt TEXT, price REAL, updatedAt TEXT);');
-    },
     version: 1,
   );
 

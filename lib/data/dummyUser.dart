@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:desmokrizer/models/user.dart';
 
 final List<User> users = [
@@ -9,7 +7,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Nadeem",
@@ -17,7 +15,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Maged",
@@ -25,7 +23,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Khaled",
@@ -33,7 +31,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Thomas",
@@ -41,7 +39,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Max",
@@ -49,7 +47,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Henry",
@@ -57,7 +55,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Messi",
@@ -65,7 +63,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Cristiano",
@@ -73,7 +71,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Rooney",
@@ -81,7 +79,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Willson",
@@ -89,7 +87,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Isak",
@@ -97,7 +95,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Schweinsteiger",
@@ -105,7 +103,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Benzema",
@@ -113,7 +111,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Cancello",
@@ -121,7 +119,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Maximilian",
@@ -129,7 +127,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Dieter",
@@ -137,7 +135,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Fleck",
@@ -145,7 +143,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Marcello",
@@ -153,7 +151,7 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
   User(
     name: "Kane",
@@ -161,6 +159,6 @@ final List<User> users = [
     cigarettesInPack: 20,
     cigarettesPacks: 2,
     packPrice: 8,
-    smokedCiagrettesPerDay: 23,
+    smokedCigarettesPerDay: 23,
   ),
 ];

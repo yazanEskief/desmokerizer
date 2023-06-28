@@ -22,7 +22,7 @@ Future<Database> _getDatabase() async {
         image TEXT,
         cigarettesPacks REAL,
         packPrice REAL,
-        smokedCiagrettesPerDay REAL,
+        smokedCigarettesPerDay REAL,
         cigarettesInPack REAL,
         start TEXT,  
         createdAt TEXT, 
@@ -72,7 +72,7 @@ class UserProvider extends StateNotifier<List<User>> {
       start: DateTime.parse(userMap["start"] as String),
       cigarettesPacks: userMap["cigarettesPacks"] as double,
       packPrice: userMap["packPrice"] as double,
-      smokedCiagrettesPerDay: userMap["smokedCiagrettesPerDay"] as double,
+      smokedCigarettesPerDay: userMap["smokedCigarettesPerDay"] as double,
       cigarettesInPack: userMap["cigarettesInPack"] as double,
       createdAt: DateTime.parse(userMap["createdAt"] as String),
       updatedAt: DateTime.parse(userMap["updatedAt"] as String),
@@ -93,7 +93,7 @@ class UserProvider extends StateNotifier<List<User>> {
       "image": user.localImage == null ? "" : user.localImage!.path,
       "cigarettesPacks": user.cigarettesPacks,
       "packPrice": user.packPrice,
-      "smokedCiagrettesPerDay": user.smokedCiagrettesPerDay,
+      "smokedCigarettesPerDay": user.smokedCigarettesPerDay,
       "cigarettesInPack": user.cigarettesInPack,
       "createdAt": user.createdAt.toIso8601String(),
       "updatedAt": user.updatedAt.toIso8601String(),
@@ -117,7 +117,7 @@ class UserProvider extends StateNotifier<List<User>> {
       "start": user.start.toIso8601String(),
       "cigarettesPacks": user.cigarettesPacks,
       "packPrice": user.packPrice,
-      "smokedCiagrettesPerDay": user.smokedCiagrettesPerDay,
+      "smokedCigarettesPerDay": user.smokedCigarettesPerDay,
       "cigarettesInPack": user.cigarettesInPack,
       "createdAt": user.createdAt.toIso8601String(),
       "updatedAt": user.updatedAt.toIso8601String(),
@@ -137,22 +137,28 @@ class UserProvider extends StateNotifier<List<User>> {
     List<User> result = [];
 
     temp.forEach((key, value) {
-      final temp = value as Map<String, dynamic>;
-      result.add(
-        User(
-          id: key,
-          name: temp["name"],
-          netWorkImageUrl: temp["imageUrl"],
-          start: DateTime.parse(temp["start"]),
-          cigarettesPacks: (temp["cigarettesPacks"] as int).toDouble(),
-          packPrice: (temp["packPrice"] as int).toDouble(),
-          smokedCiagrettesPerDay:
-              (temp["smokedCiagrettesPerDay"] as int).toDouble(),
-          cigarettesInPack: (temp["cigarettesInPack"] as int).toDouble(),
-          createdAt: DateTime.parse(temp["createdAt"]),
-          updatedAt: DateTime.parse(temp["updatedAt"]),
-        ),
+      final name = value["name"] as String;
+      final imageUrl = value["imageUrl"] as String;
+      final start = DateTime.parse(value["start"]);
+      final cigarettesPacks = value["cigarettesPacks"].toDouble();
+      final packPrice = value["packPrice"].toDouble();
+      final smokedCigarettesPerDay = value["smokedCigarettesPerDay"].toDouble();
+      final cigarettesInPack = value["cigarettesInPack"].toDouble();
+      final createdAt = DateTime.parse(value["createdAt"]);
+      final updatedAt = DateTime.parse(value["updatedAt"]);
+      final user = User(
+        id: key,
+        name: name,
+        netWorkImageUrl: imageUrl,
+        start: start,
+        cigarettesPacks: cigarettesPacks,
+        packPrice: packPrice,
+        smokedCigarettesPerDay: smokedCigarettesPerDay,
+        cigarettesInPack: cigarettesInPack,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
       );
+      result.add(user);
     });
 
     result.sort((a, b) => a.start.compareTo(b.start));

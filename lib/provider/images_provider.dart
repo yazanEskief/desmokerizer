@@ -11,10 +11,6 @@ Future<Database> _getDatabase() async {
   final dbPath = await sql.getDatabasesPath();
   final db = await sql.openDatabase(
     path.join(dbPath, "desmokerizer.db"),
-    onCreate: (db, version) {
-      return db.execute(
-          'CREATE TABLE moments (id TEXT PRIMARY KEY, description TEXT, createdAt TEXT, imageURL TEXT, updatedAt TEXT);');
-    },
     version: 1,
   );
 
@@ -38,7 +34,8 @@ class ImageProvider extends StateNotifier<List<DesmokerizerImage>> {
           (e) => DesmokerizerImage(
             id: e["id"] as String,
             imagePath: File(e["imageURL"] as String),
-            description: e["description"] as String,
+            description:
+                e["description"] != null ? e["description"] as String : "",
             createdAt: DateTime.parse(e["createdAt"] as String),
             updatedAt: DateTime.parse(e["updatedAt"] as String),
           ),

@@ -34,7 +34,7 @@ class _SmokingCostsState extends ConsumerState<SmokingCosts> {
         start: widget.userInfo["start"],
         cigarettesPacks: _cigarettesPack,
         packPrice: _packPrice,
-        smokedCiagrettesPerDay: _smokedCiagrettesPerDay,
+        smokedCigarettesPerDay: _smokedCiagrettesPerDay,
         cigarettesInPack: _cigarettesInPack,
       );
 
